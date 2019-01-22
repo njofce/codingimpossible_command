@@ -1,7 +1,8 @@
-package codingimpossible.command_pattern.action;
+package codingimpossible.command_pattern;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 class QueueStack<T> {
 
@@ -15,8 +16,11 @@ class QueueStack<T> {
         dataCollection.add(0, item);
     }
 
-    T pop() {
-        return dataCollection.remove(dataCollection.size() - 1);
+    Optional<T> pop() {
+        if(dataCollection.size() > 0)
+            return Optional.of(dataCollection.remove(dataCollection.size() - 1));
+        else
+            return Optional.empty();
     }
 
     void clear() {

@@ -6,4 +6,6 @@ public interface Action {
 
     void undo();
 
+    String getName();
+
 }
